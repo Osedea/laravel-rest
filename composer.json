@@ -1,0 +1,22 @@
+{
+    "name": "osedea/laravel-rest",
+    "description": "A bundle providing a RESTful API for the Laravel framework version 5 using the command bus.",
+    "keywords": ["laravel", "REST", "API", "command bus"],
+    "authors": [
+        {
+            "name": "Osedea",
+            "email": "info@osedea.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0",
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Osedea\\LaravelRest\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
