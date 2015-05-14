@@ -25,7 +25,6 @@ You should now be good to go without having to change anything! Access `/api/v1/
 You need to specify the application namespace used in your project. The default is App, but if you changed it, you need to change it in the config:
 
 ```
-#!php
 <?php
 
 return [
@@ -38,7 +37,6 @@ return [
 To add a resource to the default controller, you just have to add a line in the `/config/api.php` file:
 
 ```
-#!php
 <?php
 
 return [
@@ -53,7 +51,6 @@ return [
 If you want to use a different prefix, you can do so by specifying the prefix key:
 
 ```
-#!php
 <?php
 
 return [
@@ -65,7 +62,7 @@ If you don't specify the key prefix, it will default to `api`.
 
 ## Commands and the default controller
 
-Lucy comes with a default REST controller to handle resources.
+LaravelRest comes with a default REST controller to handle resources.
 This allows automatic actions on resources listing, showing, deleting and lising relations.
 
 ### Actions
@@ -87,14 +84,12 @@ All lists are paginated by default.
 You can set a number of items per page for each Model by overriding a variable:
 
 ```
-#!php
 protected $perPage = 10;
 ```
 
 You can also define a maximum for this value because it can be overridden in a request:
 
 ```
-#!php
 protected $perPageMax = 50;
 ```
 
@@ -130,17 +125,17 @@ If you absolutely need nested relations, you specify them like so:
 
 #### Defaults
 
-Lucy has default commands for several actions:
+LaravelRest has default commands for several actions:
 
- * `GET /{resource}`: `Lucy\Commands\DefaultCommand\IndexCommand`
- * `GET /{resource}/{id}`: `Lucy\Commands\DefaultCommand\ShowCommand`
- * `DELETE /{resource}/{id}`: `Lucy\Commands\DefaultCommand\DeleteCommand`
- * `GET /{resource}/{id}/{relation}`: `Lucy\Commands\DefaultCommand\RelationIndexCommand`
+ * `GET /{resource}`: `Osedea\LaravelRest\Commands\DefaultCommand\IndexCommand`
+ * `GET /{resource}/{id}`: `Osedea\LaravelRest\Commands\DefaultCommand\ShowCommand`
+ * `DELETE /{resource}/{id}`: `Osedea\LaravelRest\Commands\DefaultCommand\DeleteCommand`
+ * `GET /{resource}/{id}/{relation}`: `Osedea\LaravelRest\Commands\DefaultCommand\RelationIndexCommand`
 
 With these defaults, the mapping is enough for them to work. You can override them by creating a command using the
 correct namespace:
 
-Example, to override the `POST /users/{id}` default command, create one called `Lucy\Commands\UserCommand\DestroyCommand`.
+Example, to override the `POST /users/{id}` default command, create one called `Osedea\LaravelRest\Commands\UserCommand\DestroyCommand`.
 
 #### Create and Update
 
@@ -148,12 +143,12 @@ Those actions are very specific to a resource so there is no default.
 
 You will have to create them for all resources listed in the mapping file. The schema is this:
 
-`Lucy\Commands\{mapping[resource]}Command\{action}Command`
+`Osedea\LaravelRest\Commands\{mapping[resource]}Command\{action}Command`
 
 For example, to add the create command of the `users` resource, the command is:
 
-`Lucy\Commands\UserCommand\StoreCommand`
+`Osedea\LaravelRest\Commands\UserCommand\StoreCommand`
 
 #### A command class
 
-A command class needs to extend `Lucy\Commands\Command` and implement `Illuminate\Contracts\Bus\SelfHandling`.
+A command class needs to extend `Osedea\LaravelRest\Commands\Command` and implement `Illuminate\Contracts\Bus\SelfHandling`.
