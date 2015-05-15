@@ -1,5 +1,7 @@
 # LaravelRest
 
+This is a Laravel 5 package that creates RESTful API routes for your models and uses the command bus to execute CRUD requests.
+
 ## Installation
 
 Install the package via composer:
@@ -94,8 +96,6 @@ protected $perPageMax = 50;
 ```
 
 And then in a request: `/users?page=2&perPage=3`
-
-For a full documentation on pagination, refer to the [API Guideline](https://bitbucket.org/osedea/coding-guidelines/src/master/API%20guidelines.md)
 
 #### Sorting
 
