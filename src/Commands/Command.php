@@ -15,7 +15,8 @@ abstract class Command
         'count',
         'embed',
         'page',
-        'fields'
+        'fields',
+        'perPage'
     ];
 
     /**
