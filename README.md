@@ -6,7 +6,7 @@ This is a Laravel 5 package that creates RESTful API routes for your models and 
 
 Install the package via composer:
 
-    composer require osedea/laravel-rest:~0.1
+    composer require osedea/laravel-rest:~0.1.0
 
 ## Usage
 
