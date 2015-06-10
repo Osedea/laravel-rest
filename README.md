@@ -13,6 +13,19 @@ Install the package via composer:
 First, add the eloquence service provider to your config/app.php file:
 
     'Osedea\LaravelRest\LaravelRestServiceProvider'
+    
+All you models need to use the trait `\Osedea\LaravelRest\Traits\CommandModel` to provide some attributes and methods:
+
+```
+<?php
+
+namespace Acme;
+
+class SomeModel {
+    use \Osedea\LaravelRest\Traits\CommandModel;
+}
+
+```
 
 Then, publish the config file to your application:
 
