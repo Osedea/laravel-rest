@@ -34,6 +34,18 @@ return [
 ];
 ```
 
+### Models Namespace
+
+If you models are in a custom namespace different from `app_namespace`, you can specify this config.
+
+```
+<?php
+
+return [
+    'models_namespace' => 'SomethingElse'
+];
+```
+
 ### Mapping
 
 To add a resource to the default controller, you just have to add a line in the `/config/api.php` file:
