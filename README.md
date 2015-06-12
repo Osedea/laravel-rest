@@ -13,6 +13,19 @@ Install the package via composer:
 First, add the eloquence service provider to your config/app.php file:
 
     'Osedea\LaravelRest\LaravelRestServiceProvider'
+    
+All you models need to use the trait `\Osedea\LaravelRest\Traits\CommandModel` to provide some attributes and methods:
+
+```
+<?php
+
+namespace Acme;
+
+class SomeModel {
+    use \Osedea\LaravelRest\Traits\CommandModel;
+}
+
+```
 
 Then, publish the config file to your application:
 
@@ -31,6 +44,18 @@ You need to specify the application namespace used in your project. The default 
 
 return [
     'app_namespace' => 'SomethingElse'
+];
+```
+
+### Models Namespace
+
+If you models are in a custom namespace different from `app_namespace`, you can specify this config.
+
+```
+<?php
+
+return [
+    'models_namespace' => 'SomethingElse'
 ];
 ```
 

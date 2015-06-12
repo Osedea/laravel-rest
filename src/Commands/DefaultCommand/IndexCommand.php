@@ -29,7 +29,6 @@ class IndexCommand extends Command implements SelfHandling
         $perPage = $this->getPerPageFromModelClass($class);
         $fields = $this->getFieldsFromRequest();
 
-
         $query = $class::withRequestSort()->withRequestEmbed();
         $query = $this->addWhereStatements($query, $class);
 
