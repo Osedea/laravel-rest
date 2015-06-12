@@ -6,14 +6,14 @@ This is a Laravel 5 package that creates RESTful API routes for your models and 
 
 Install the package via composer:
 
-    composer require osedea/laravel-rest:~0.1.0
+    composer require osedea/laravel-rest:~0.2.1
 
 ## Usage
 
 First, add the eloquence service provider to your config/app.php file:
 
     'Osedea\LaravelRest\LaravelRestServiceProvider'
-    
+
 All you models need to use the trait `\Osedea\LaravelRest\Traits\CommandModel` to provide some attributes and methods:
 
 ```
