@@ -17,11 +17,12 @@ class TranslatorService
      *
      * @param string $resource
      * @return string
+     * @throws NotFoundHttpException
      */
     public function getClassFromResource($resource)
     {
-        // This is the namespace used for the app
-        $namespace = Config::get('api.app_namespace');
+        // This is the models namespace
+        $modelsNamespace = Config::get('api.models_namespace', Config::get('api.app_namespace'));
 
         // This array contains mapping between resources and Model classes
         $mapping = Config::get('api.mapping');
@@ -34,7 +35,7 @@ class TranslatorService
             throw new NotFoundHttpException;
         }
 
-        return implode('\\', [$namespace, 'Models', $mapping[$resource]]);
+        return implode('\\', [$modelsNamespace, $mapping[$resource]]);
     }
 
     /**
@@ -48,6 +49,7 @@ class TranslatorService
      * @param string $action
      * @param string|null $relation
      * @return string
+     * @throws NotFoundHttpException
      */
     public function getCommandFromResource($resource, $action, $relation = null)
     {
@@ -71,9 +73,19 @@ class TranslatorService
                 throw new NotFoundHttpException('The resource [' . $resource . '] is not mapped to any Model.');
             }
 
-            $command = implode('\\', [$namespace, 'Commands', $mapping[$resource] . 'Command', ucfirst($mapping[$relation]) . ucfirst($action) . 'Command']);
+            $command = implode('\\', [
+                $namespace,
+                'Commands',
+                $mapping[$resource] . 'Command',
+                ucfirst($mapping[$relation]) . ucfirst($action) . 'Command'
+            ]);
         } else {
-            $command = implode('\\', [$namespace, 'Commands', $mapping[$resource] . 'Command', ucfirst($action) . 'Command']);
+            $command = implode('\\', [
+                $namespace,
+                'Commands',
+                $mapping[$resource] . 'Command',
+                ucfirst($action) . 'Command'
+            ]);
         }
 
         // If no custom command is found, then we use one of the default ones

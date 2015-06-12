@@ -16,6 +16,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Models Namespace
+    |--------------------------------------------------------------------------
+    |
+    | The Eloquent models namespace. This has to be the namespace from the
+    | root of the project.
+    | If not specified, then `app_namespace` will be used instead.
+    |
+    */
+
+    'models_namespace' => 'App',
+
+    /*
+    |--------------------------------------------------------------------------
     | API Mapping
     |--------------------------------------------------------------------------
     |
