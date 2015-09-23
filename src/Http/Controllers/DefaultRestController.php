@@ -133,7 +133,10 @@ class DefaultRestController extends Controller
 
         $this->runBeforeCommands($command);
 
-        $data = $this->dispatchFrom($command, $request);
+        $data = $this->dispatchFrom($command, $request, [
+            'modelClass' => $this->translator->getClassFromResource($resource),
+            'id' => $id,
+        ]);
 
         $this->fireEventForResource($resource, 'update', $data);
 
