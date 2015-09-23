@@ -154,19 +154,22 @@ LaravelRest has default commands for several actions:
 
  * `GET /{resource}`: `Osedea\LaravelRest\Commands\DefaultCommand\IndexCommand`
  * `GET /{resource}/{id}`: `Osedea\LaravelRest\Commands\DefaultCommand\ShowCommand`
+ * `POST /{resource}/{id}`: `Osedea\LaravelRest\Commands\DefaultCommand\StoreCommand`
+ * `PUT /{resource}/{id}`: `Osedea\LaravelRest\Commands\DefaultCommand\UpdateCommand`
  * `DELETE /{resource}/{id}`: `Osedea\LaravelRest\Commands\DefaultCommand\DeleteCommand`
  * `GET /{resource}/{id}/{relation}`: `Osedea\LaravelRest\Commands\DefaultCommand\RelationIndexCommand`
 
 With these defaults, the mapping is enough for them to work. You can override them by creating a command using the
 correct namespace:
 
-Example, to override the `POST /users/{id}` default command, create one called `Osedea\LaravelRest\Commands\UserCommand\DestroyCommand`.
+Example, to override the `POST /users/{id}` default command, create one called `Osedea\LaravelRest\Commands\UserCommand\StoreCommand`.
 
 #### Create and Update
 
-Those actions are very specific to a resource so there is no default.
+Those actions are very specific to a resource so the default commands may not fulfill your needs.
+If you want to use the default commands then your models need to have the `$fillable` property set.
 
-You will have to create them for all resources listed in the mapping file. The schema is this:
+To override the default behaviour you will have to create a command for all resources listed in the mapping file. The schema is this:
 
 `Osedea\LaravelRest\Commands\{mapping[resource]}Command\{action}Command`
 
