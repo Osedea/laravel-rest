@@ -2,6 +2,7 @@
 
 namespace Osedea\LaravelRest\Http\Controllers;
 
+use Config;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Http\Request;
 
@@ -81,11 +82,17 @@ class DefaultRestController extends Controller
 
         $this->runBeforeCommands($command);
 
-        $data = $this->dispatchFrom($command, $request);
+        $data = $this->dispatchFrom($command, $request, [
+            'modelClass' => $this->translator->getClassFromResource($resource),
+        ]);
 
         $this->fireEventForResource($resource, 'store', $data);
 
-        return $this->success($data, 201);
+        $newResourceLocation = '/' . Config::get('api.prefix', 'api')
+            . '/' . $resource
+            . '/' . $data->id;
+
+        return $this->success([], 201, ['Location' => $newResourceLocation]);
     }
 
     /**

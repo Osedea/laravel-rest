@@ -36,10 +36,8 @@ abstract class Controller extends BaseController
      * @param int $code
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function success($data, $code = 200)
+    public function success($data, $code = 200, $headers = [])
     {
-        $headers = [];
-
         if ($data instanceof Paginator && $data instanceof LengthAwarePaginator) {
             $headers['X-Total-Count'] = $data->total();
             $headers['X-Total-Pages'] = $data->lastPage();
