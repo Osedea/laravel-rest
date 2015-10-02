@@ -85,6 +85,20 @@ return [
 ];
 ```
 
+### APi Middleware
+
+If you routes need to have a middleware set up, you can specify the middlewares
+or filters to use.
+
+```
+<?php
+
+return [
+    'middleware' => []
+];
+```
+
+
 If you don't specify the key prefix, it will default to `api`.
 
 ## Commands and the default controller

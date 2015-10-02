@@ -8,8 +8,15 @@ use Illuminate\Support\Facades\Config;
 |--------------------------------------------------------------------------
 |
 */
+$options = [
+    'prefix' => Config::get('api.prefix', 'api'),
+];
 
-Route::group(['prefix' => Config::get('api.prefix', 'api')], function () {
+if (Config::has('api.middleware')) {
+    $options['middleware'] = Config::get('api.middleware');
+}
+
+Route::group($options, function () {
     // These routes are using the api.php config file to map {resource} and {relation} to Models
     Route::get('/{resource}', 'DefaultRestController@index');
     Route::get('/{resource}/{id}', 'DefaultRestController@show');

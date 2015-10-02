@@ -50,6 +50,17 @@ return [
     |
     */
 
-    'prefix' => 'api/v1'
+    'prefix' => 'api/v1',
 
+    /*
+    |--------------------------------------------------------------------------
+    | API Middleware
+    |--------------------------------------------------------------------------
+    |
+    | If your API routes need to use a middleware or filter, specify them here.
+    | However it will apply for all of them.
+    |
+    */
+
+    'middleware' => [],
 ];
