@@ -85,7 +85,9 @@ return [
 ];
 ```
 
-### APi Middleware
+If you don't specify the key prefix, it will default to `api`.
+
+### API Middleware
 
 If you routes need to have a middleware set up, you can specify the middlewares
 or filters to use.
@@ -97,9 +99,6 @@ return [
     'middleware' => []
 ];
 ```
-
-
-If you don't specify the key prefix, it will default to `api`.
 
 ## Commands and the default controller
 
