@@ -4,18 +4,18 @@ namespace Osedea\LaravelRest\Traits;
 
 trait CommandModel
 {
-    /*
-         * The attributes that can be used for filtering through the API.
-         *
-         * @var array
-         */
+    /**
+     * The attributes that can be used for filtering through the API.
+     *
+     * @var array
+     */
     public static $filterable = [];
 
     /**
      * This holds the maximum number of items per page fot this model.
      * @var integer
      */
-    protected $perPageMax = 25;
+    protected $perPageMax = 50;
 
     public function getPerPageMax()
     {
