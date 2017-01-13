@@ -1,3 +1,7 @@
+# Note
+
+This package is no longer maintained. Should you have any issues, you are free to fork the repo.
+
 # LaravelRest
 
 This is a Laravel 5 package that creates RESTful API routes for your models and uses the command bus to execute CRUD requests.
